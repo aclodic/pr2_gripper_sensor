@@ -52,7 +52,8 @@ public:
     node_(n),
     action_server_(node_, "find_contact",
                    boost::bind(&Pr2GripperFindContact::goalCB, this, _1),
-                   boost::bind(&Pr2GripperFindContact::cancelCB, this, _1)),
+                   boost::bind(&Pr2GripperFindContact::cancelCB, this, _1),
+		   true),
     has_active_goal_(false)
   {
     ros::NodeHandle pn("~");

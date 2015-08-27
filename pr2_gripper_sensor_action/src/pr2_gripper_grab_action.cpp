@@ -186,7 +186,7 @@ protected:
 public:
 
   PR2GripperGrabAction(std::string name) :
-    as_(nh_, name, boost::bind(&PR2GripperGrabAction::executeCB, this, _1)),
+    as_(nh_, name, boost::bind(&PR2GripperGrabAction::executeCB, this, _1), true),
     action_name_(name)
   {
   }

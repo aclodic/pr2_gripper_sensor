@@ -52,7 +52,8 @@ public:
     node_(n),
     action_server_(node_, "slip_servo",
                    boost::bind(&Pr2GripperSlipServo::goalCB, this, _1),
-                   boost::bind(&Pr2GripperSlipServo::cancelCB, this, _1)),
+                   boost::bind(&Pr2GripperSlipServo::cancelCB, this, _1), 
+		   true),
     has_active_goal_(false)
   {
     ros::NodeHandle pn("~");

@@ -52,7 +52,8 @@ public:
     node_(n),
     action_server_(node_, "event_detector",
                    boost::bind(&Pr2GripperEventDetector::goalCB, this, _1),
-                   boost::bind(&Pr2GripperEventDetector::cancelCB, this, _1)),
+                   boost::bind(&Pr2GripperEventDetector::cancelCB, this, _1),
+		   true),
     has_active_goal_(false)
   {
     ros::NodeHandle pn("~");
